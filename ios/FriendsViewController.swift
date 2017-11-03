@@ -50,7 +50,7 @@ class FriendsViewController: UITableViewController {
             for obj in results! {
                 
                 let r = obj as! NSDictionary
-                let fvo = FriendVO()
+                let fvo: FriendVO = FriendVO()
                 
                 let name = r["name"] as! NSDictionary
                 let title = (name["title"] as! String).firstUppercased
@@ -96,7 +96,6 @@ class FriendsViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segue_detail" {
-            
             let cell = sender as! FriendCell
             let path = self.tableView.indexPath(for: cell)
             let friendInfo = self.friendList[path!.row]
