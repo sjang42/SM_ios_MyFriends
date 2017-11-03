@@ -8,8 +8,17 @@
 
 import UIKit
 
+extension String {
+    var firstUppercased: String {
+        guard let first = first else { return "" }
+        return String(first).uppercased() + dropFirst()
+    }
+}
+
 class FriendsViewController: UITableViewController {
 
+    
+    
     var friendList = [FriendVO]()
     
     override func viewDidLoad() {
@@ -29,6 +38,8 @@ class FriendsViewController: UITableViewController {
     }
     
     func callFriendsAPI() {
+        
+        
         let url = "https://randomuser.me/api/?results=20&inc=name,picture,nat,cell,email,id"
         let apiURI : URL! = URL(string: url)
         let apidata = try! Data(contentsOf: apiURI)
@@ -47,14 +58,17 @@ class FriendsViewController: UITableViewController {
                 let fvo = FriendVO()
                 
                 let name = r["name"] as! NSDictionary
-                let title = name["title"] as! String
-                let first = name["first"] as! String
-                let last = name["last"] as! String
+                let title = (name["title"] as! String).firstUppercased
+                let first = (name["first"] as! String).firstUppercased
+                let last = (name["last"] as! String).firstUppercased
                 
-                fvo.name = "\(String(describing: title)) \(String(describing: first)) \(String(describing: last))"
+                fvo.name = "\(String(describing: title)). \(String(describing: first)) \(String(describing: last))"
                 let pictures = r["picture"] as! NSDictionary
                 fvo.picture = pictures["thumbnail"] as? String
                 fvo.email = r["email"] as? String
+                fvo.cell = r["cell"] as? String
+                fvo.nat = (r["nat"] as? String)?.uppercased()
+                fvo.last = "\(String(describing: title)). \(String(describing: last))"
                 
                 self.friendList.append(fvo)
             }
@@ -83,6 +97,18 @@ class FriendsViewController: UITableViewController {
         cell.photo?.image = UIImage(data: imageData)
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segue_detail" {
+            
+            let cell = sender as! FriendCell
+            let path = self.tableView.indexPath(for: cell)
+            let friendInfo = self.friendList[path!.row]
+            
+            let detailVC = segue.destination as? DetailViewController
+            detailVC?.fvo = friendInfo
+        }
     }
     
 }

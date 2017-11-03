@@ -8,6 +8,7 @@
 
 import UIKit
 
+// 
 class FriendVO {
     var name: String?
     var title: String?
