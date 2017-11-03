@@ -16,9 +16,6 @@ extension String {
 }
 
 class FriendsViewController: UITableViewController {
-
-    
-    
     var friendList = [FriendVO]()
     
     override func viewDidLoad() {
@@ -38,8 +35,6 @@ class FriendsViewController: UITableViewController {
     }
     
     func callFriendsAPI() {
-        
-        
         let url = "https://randomuser.me/api/?results=20&inc=name,picture,nat,cell,email,id"
         let apiURI : URL! = URL(string: url)
         let apidata = try! Data(contentsOf: apiURI)
@@ -110,6 +105,4 @@ class FriendsViewController: UITableViewController {
             detailVC?.fvo = friendInfo
         }
     }
-    
 }
-

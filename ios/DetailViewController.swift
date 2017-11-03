@@ -19,14 +19,12 @@ class DetailViewController: UIViewController {
     
     var fvo : FriendVO!
     
-    @IBAction func onAddBestfriend(_ sender: UIBarButtonItem) {
-        NSLog("ldf")
+    @IBAction func addButton(_ sender: UIButton) {
+        
     }
     
     override func viewDidLoad() {
         NSLog("linkurl = \(String(describing: self.fvo?.name)), title=\(String(describing: self.fvo?.last))")
-        
-        titleTitle.title = fvo?.last
         
         let url: URL! = URL(string: fvo.picture!)
         let imageData = try! Data(contentsOf: url)
@@ -35,13 +33,17 @@ class DetailViewController: UIViewController {
         emailLabel.text = fvo?.email
         cellLabel.text = fvo?.cell
         nationLabel.text = fvo?.nat
+        titleTitle.title = fvo?.last
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segue_web" {
+            
+            let detailVC = segue.source as? DetailViewController
+            let nation = detailVC?.nationLabel.text
+            
+            let webVC = segue.destination as? WebViewController
+            webVC?.nation = nation
+        }
+    }
 }
-//
-//cell.name?.text = row.name
-//cell.email?.text = row.email
-//let url: URL! = URL(string: row.picture!)
-//let imageData = try! Data(contentsOf: url)
-//cell.photo?.image = UIImage(data: imageData)
-//

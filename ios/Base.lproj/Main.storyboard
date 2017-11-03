@@ -150,7 +150,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Search On Web"/>
                                 <connections>
-                                    <segue destination="nnd-7b-ZF4" kind="show" id="2b6-qV-ViV"/>
+                                    <segue destination="BrF-Bm-pkj" kind="popoverPresentation" identifier="segue_web" popoverAnchorView="Kd4-sH-Gl8" id="RtF-8M-9bj">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -164,10 +166,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="addButton:" destination="q5A-eF-5Q2" eventType="touchUpInside" id="t8a-fb-HtE"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <action selector="onAddBestfriend:" destination="q5A-eF-5Q2" id="3JK-Qr-vG5"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -183,31 +185,76 @@
             </objects>
             <point key="canvasLocation" x="2440.8000000000002" y="-0.44977511244377816"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="pPM-Cv-6nN">
+        <!--Web View Controller-->
+        <scene sceneID="mv1-7C-dt9">
             <objects>
-                <viewController id="nnd-7b-ZF4" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9fV-hy-Z0O">
+                <viewController id="BrF-Bm-pkj" customClass="WebViewController" customModule="ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PrG-iY-cgm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CfG-16-4C7">
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fWZ-7O-cbK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
+                                <connections>
+                                    <outlet property="delegate" destination="BrF-Bm-pkj" id="8y4-Td-fUa"/>
+                                </connections>
+                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HKa-sP-5jE">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="IDy-34-1Yg"/>
+                                    <barButtonItem systemItem="rewind" id="o1V-G8-UG9">
+                                        <connections>
+                                            <action selector="btnGoBack:" destination="BrF-Bm-pkj" id="g6U-el-yIo"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="3bq-VC-3hX"/>
+                                    <barButtonItem systemItem="stop" id="99y-yx-EE0">
+                                        <connections>
+                                            <action selector="btnStop:" destination="BrF-Bm-pkj" id="tup-rL-nFY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="34" style="plain" systemItem="fixedSpace" id="Dbh-EC-jLs"/>
+                                    <barButtonItem systemItem="refresh" id="zlH-TD-CJk">
+                                        <connections>
+                                            <action selector="btnRefresh:" destination="BrF-Bm-pkj" id="c3N-Lw-u3p"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="30" style="plain" systemItem="fixedSpace" id="jHy-i1-YWd"/>
+                                    <barButtonItem systemItem="fastForward" id="oXu-HD-jZx">
+                                        <connections>
+                                            <action selector="btnGoForward:" destination="BrF-Bm-pkj" id="cdO-JB-3Ay"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="60" style="plain" systemItem="fixedSpace" id="bYK-55-8B8"/>
+                                    <barButtonItem title="Close" id="VyC-YS-scN">
+                                        <connections>
+                                            <action selector="btnClose:" destination="BrF-Bm-pkj" id="1Sr-3i-Klk"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="0ht-n4-ev6"/>
+                                </items>
+                            </toolbar>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="WlL-Kg-kdS">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="VmJ-Td-hnK"/>
+                        <viewLayoutGuide key="safeArea" id="lhA-0R-wuM"/>
                     </view>
+                    <connections>
+                        <outlet property="myActivityIndicator" destination="WlL-Kg-kdS" id="Cor-bf-jmN"/>
+                        <outlet property="wv" destination="fWZ-7O-cbK" id="sB5-d9-uyy"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G4g-8V-JjA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sdo-AM-NES" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3269.5999999999999" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="3210" y="0.0"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hgc-mi-s5Y">
@@ -262,6 +309,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tMU-il-mwz"/>
+        <segue reference="FtN-EG-dwu"/>
     </inferredMetricsTieBreakers>
 </document>

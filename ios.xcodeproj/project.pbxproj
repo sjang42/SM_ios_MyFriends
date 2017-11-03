@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D512F4291FACC55400BD8766 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D512F4281FACC55400BD8766 /* WebViewController.swift */; };
 		D52A2DA91FAC60C800A64C21 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52A2DA81FAC60C800A64C21 /* DetailViewController.swift */; };
 		D53199091FAB6C540093599A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53199081FAB6C540093599A /* AppDelegate.swift */; };
 		D531990B1FAB6C540093599A /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D531990A1FAB6C540093599A /* FriendsViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D512F4281FACC55400BD8766 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		D52A2DA81FAC60C800A64C21 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D53199051FAB6C540093599A /* ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D53199081FAB6C540093599A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				D531993A1FAB73190093599A /* FriendCell.swift */,
 				D531990C1FAB6C540093599A /* BestFriendsViewController.swift */,
 				D531990E1FAB6C540093599A /* Main.storyboard */,
+				D512F4281FACC55400BD8766 /* WebViewController.swift */,
 				D52A2DA81FAC60C800A64C21 /* DetailViewController.swift */,
 				D53199111FAB6C540093599A /* Assets.xcassets */,
 				D53199131FAB6C540093599A /* LaunchScreen.storyboard */,
@@ -152,6 +155,7 @@
 				D531993D1FAB789B0093599A /* FriendVO.swift in Sources */,
 				D53199091FAB6C540093599A /* AppDelegate.swift in Sources */,
 				D52A2DA91FAC60C800A64C21 /* DetailViewController.swift in Sources */,
+				D512F4291FACC55400BD8766 /* WebViewController.swift in Sources */,
 				D531990B1FAB6C540093599A /* FriendsViewController.swift in Sources */,
 				D531993B1FAB73190093599A /* FriendCell.swift in Sources */,
 			);
