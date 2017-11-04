@@ -24,6 +24,7 @@ class DetailViewController: UIViewController {
     var ud = UserDefaults.standard
     
     @IBOutlet var btnAdd: UIButton!
+    
     @IBAction func addButton(_ sender: UIButton) {
         if (idxBest) == -1 {
             bestFriends.append(fvo)
@@ -55,15 +56,14 @@ class DetailViewController: UIViewController {
             bestFriends = NSKeyedUnarchiver.unarchiveObject(with: data) as! [FriendVO]
         }
         
-        let i = bestFriends.index(where: { $0.email == emailLabel.text })
+        let idx = bestFriends.index(where: { $0.cell == cellLabel.text })
         
-        if i == nil {
+        if idx == nil {
             btnAdd.setTitle("+", for: .normal)
         } else {
             btnAdd.setTitle("-", for: .normal)
-            idxBest = i!
+            idxBest = idx!
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

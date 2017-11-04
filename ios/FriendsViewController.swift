@@ -59,7 +59,7 @@ class FriendsViewController: UITableViewController {
                 
                 fvo.name = "\(String(describing: title)). \(String(describing: first)) \(String(describing: last))"
                 let pictures = r["picture"] as! NSDictionary
-                fvo.picture = pictures["thumbnail"] as? String
+                fvo.picture = pictures["large"] as? String
                 fvo.email = r["email"] as? String
                 fvo.cell = r["cell"] as? String
                 fvo.nat = (r["nat"] as? String)?.uppercased()
