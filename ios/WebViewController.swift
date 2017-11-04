@@ -32,6 +32,22 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         self.myActivityIndicator.stopAnimating()
     }
     
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        self.myActivityIndicator.stopAnimating()
+        
+        let alert = UIAlertController(title: "오류",
+                                      message: "상세페이지를 읽어오지 못했습니다.",
+                                      preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "확인", style: .cancel) {
+            (_) in
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+        
+        alert.addAction(cancelAction)
+        self.present(alert, animated: false, completion: nil)
+    }
+    
     @IBAction func btnGoBack(_ sender: UIBarButtonItem) {
         wv.goBack()
     }

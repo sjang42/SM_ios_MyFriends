@@ -225,55 +225,58 @@
                                     <outlet property="delegate" destination="BrF-Bm-pkj" id="8y4-Td-fUa"/>
                                 </connections>
                             </webView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HKa-sP-5jE">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="IDy-34-1Yg"/>
-                                    <barButtonItem systemItem="rewind" id="o1V-G8-UG9">
-                                        <connections>
-                                            <action selector="btnGoBack:" destination="BrF-Bm-pkj" id="g6U-el-yIo"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="3bq-VC-3hX"/>
-                                    <barButtonItem systemItem="stop" id="99y-yx-EE0">
-                                        <connections>
-                                            <action selector="btnStop:" destination="BrF-Bm-pkj" id="tup-rL-nFY"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="34" style="plain" systemItem="fixedSpace" id="Dbh-EC-jLs"/>
-                                    <barButtonItem systemItem="refresh" id="zlH-TD-CJk">
-                                        <connections>
-                                            <action selector="btnRefresh:" destination="BrF-Bm-pkj" id="c3N-Lw-u3p"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="30" style="plain" systemItem="fixedSpace" id="jHy-i1-YWd"/>
-                                    <barButtonItem systemItem="fastForward" id="oXu-HD-jZx">
-                                        <connections>
-                                            <action selector="btnGoForward:" destination="BrF-Bm-pkj" id="cdO-JB-3Ay"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="60" style="plain" systemItem="fixedSpace" id="bYK-55-8B8"/>
-                                    <barButtonItem title="Close" id="VyC-YS-scN">
-                                        <connections>
-                                            <action selector="btnClose:" destination="BrF-Bm-pkj" id="1Sr-3i-Klk"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="0ht-n4-ev6"/>
-                                </items>
-                            </toolbar>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="WlL-Kg-kdS">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="WlL-Kg-kdS">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhr-cJ-F7F">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gAU-AR-L1l"/>
+                                    <barButtonItem systemItem="rewind" id="CNg-LC-QZ7">
+                                        <connections>
+                                            <action selector="btnGoBack:" destination="BrF-Bm-pkj" id="hHK-Pr-m5B"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="iYr-zZ-5Wx"/>
+                                    <barButtonItem systemItem="stop" id="94j-oO-fwl">
+                                        <connections>
+                                            <action selector="btnStop:" destination="BrF-Bm-pkj" id="eRN-ks-uhG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="YWy-9p-eZb"/>
+                                    <barButtonItem systemItem="refresh" id="SAc-dK-JSB">
+                                        <connections>
+                                            <action selector="btnRefresh:" destination="BrF-Bm-pkj" id="Gya-SE-NOr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="DLS-sF-vYR"/>
+                                    <barButtonItem systemItem="fastForward" id="OGn-kC-5ZN">
+                                        <connections>
+                                            <action selector="btnGoForward:" destination="BrF-Bm-pkj" id="vct-jX-KBz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ShD-xh-yhG"/>
+                                    <barButtonItem title="Close" id="Za6-TE-xmU">
+                                        <connections>
+                                            <action selector="btnClose:" destination="BrF-Bm-pkj" id="lfe-RX-XPO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="XU7-lt-BIw"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fWZ-7O-cbK" firstAttribute="bottom" secondItem="lhA-0R-wuM" secondAttribute="bottom" id="4Ii-XB-D4w"/>
+                            <constraint firstItem="hhr-cJ-F7F" firstAttribute="bottom" secondItem="lhA-0R-wuM" secondAttribute="bottom" id="7ee-TP-u9w"/>
+                            <constraint firstItem="WlL-Kg-kdS" firstAttribute="centerY" secondItem="PrG-iY-cgm" secondAttribute="centerY" id="FCy-xR-MYJ"/>
                             <constraint firstItem="fWZ-7O-cbK" firstAttribute="leading" secondItem="lhA-0R-wuM" secondAttribute="leading" id="hmS-BP-eMg"/>
+                            <constraint firstItem="hhr-cJ-F7F" firstAttribute="leading" secondItem="lhA-0R-wuM" secondAttribute="leading" id="pM2-lu-Uqa"/>
                             <constraint firstItem="fWZ-7O-cbK" firstAttribute="top" secondItem="PrG-iY-cgm" secondAttribute="top" id="qJV-Gt-0mY"/>
                             <constraint firstItem="fWZ-7O-cbK" firstAttribute="trailing" secondItem="lhA-0R-wuM" secondAttribute="trailing" id="vGO-Q4-EUd"/>
+                            <constraint firstItem="hhr-cJ-F7F" firstAttribute="trailing" secondItem="lhA-0R-wuM" secondAttribute="trailing" id="wiw-Nk-OWH"/>
+                            <constraint firstItem="WlL-Kg-kdS" firstAttribute="centerX" secondItem="PrG-iY-cgm" secondAttribute="centerX" id="yfe-wP-kMv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lhA-0R-wuM"/>
                     </view>
