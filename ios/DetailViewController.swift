@@ -42,7 +42,7 @@ class DetailViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        NSLog("linkurl = \(String(describing: self.fvo?.name)), title=\(String(describing: self.fvo?.last))")
+        NSLog("name = \(String(describing: self.fvo?.name)), title=\(String(describing: self.fvo?.last))")
         self.idxBest = -1
         let url: URL! = URL(string: fvo.picture!)
         let imageData = try! Data(contentsOf: url)
@@ -68,7 +68,6 @@ class DetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segue_web" {
-            
             let detailVC = segue.source as? DetailViewController
             let nation = detailVC?.nationLabel.text
             
